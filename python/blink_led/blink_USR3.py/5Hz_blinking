@@ -1,0 +1,15 @@
+#Written by Justin Cooper, Adafruit Industries. BeagleBone IO Python library 
+#is released under the MIT License.
+#Please update your code accordingly.
+
+import Adafruit_BBIO.GPIO as GPIO
+import time
+
+
+    GPIO.setup("USR%d" %3, GPIO.OUT)
+    while True:
+        GPIO.output("USR%d" %3 , GPIO.HIGH)
+        time.sleep(0.1)
+           
+        GPIO.output("USR%d" %3 , GPIO.LOW)
+        time.sleep(0.1)
