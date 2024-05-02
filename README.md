@@ -20,6 +20,10 @@ README for Project 01
 
 After having downloaded the library on your PocketBeagle, the code that can be found on https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout/python-circuitpython at the bottom of the page will print the distance. You can run the code by typing "sudo python3 buzzer" in buzzer.py on the buzzer directory in your Cloud9 terminal. Note that you should configure pins before running this file. 
 
+<h2>Threaded button class</h2>
+
+Run this code after having hooked up your hardware to the pins of the button. This class will activate the ToF sensor once the button is pressed and turn it off once it's pressed again. Once it says "led is on", you can run the VL53L0x class as specified above.
+
 <h2> Software Operation Instructions </h2>
 To run the code for my project, complete the following steps.
 
