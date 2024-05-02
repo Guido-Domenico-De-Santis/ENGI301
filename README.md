@@ -24,7 +24,7 @@ After having downloaded the library on your PocketBeagle, the code that can be f
 To run the code for my project, complete the following steps.
 
 - git clone https://github/com/Guido-Domenico-De-Santis/ENGI301
-- cd /var/lib/cloud9/ENGI301
+- cd /var/lib/cloud9/ENGI301/buzzer
 - sudo ./run
   - If this does not work, the file may not be executable. Run the following line to solve the issue, and then you should be able to run the code using the sudo ./run command.
 
