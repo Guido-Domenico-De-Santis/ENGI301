@@ -4,7 +4,7 @@
 Buzzer
 --------------------------------------------------------------------------
 License:   
-Copyright 2021-2023 Erik Welsh
+Copyright 2021-2023 Guido De Santis
 
 Based on library from
 
