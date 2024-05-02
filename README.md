@@ -13,5 +13,24 @@ README for Project 01
     1. press the push button to activate the sensor
     2. cover the vl53l0x with your hand at different heights and play some beautiful notes on your themenin
 ------------------------------------------------------------------------
+<h3> VL53L0x: </h3>
 
-"""
+- sudo sudo pip3 install adarfruit-circuitpython-vl53l0x
+
+After having downloaded the library on your PocketBeagle, the code that can be found on https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout/python-circuitpython at the bottom of the page will print the distance. You can run the code by typing "sudo python3 buzzer" in buzzer.py on the buzzer directory in your Cloud9 terminal. Note that you should configure pins before running this file. 
+
+<h2> Software Operation Instructions </h2>
+To run the code for my project, complete the following steps.
+
+- git clone https://github/com/Guido-Domenico-De-Santis/ENGI301
+- cd /var/lib/cloud9/ENGI301
+- sudo ./run
+  - If this does not work, the file may not be executable. Run the following line to solve the issue, and then you should be able to run the code using the sudo ./run command.
+
+To make the code run automatically on boot, run the following commands.
+
+Restart the PocketBeagle by running ```sudo reboot``` to make sure that it runs automatically on boot.
+
+
+You can run the following command to restart the PocketBeagle and test that the code runs automatically on boot.
+
