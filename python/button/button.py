@@ -131,7 +131,7 @@ class Button():
         if (pin == None):
             raise ValueError("Pin not provided for Button()")
         else:
-            self.pin = pin
+            self.pin = 'P1_14'
         
         # For pull up resistor configuration:    press_low = True
         # For pull down resistor configuration:  press_low = False
@@ -170,73 +170,39 @@ class Button():
         # HW#4 TODO: (one line of code)
         #   Remove "pass" and return the comparison of input value of the GPIO pin of 
         #   the buton (i.e. self.pin) to the "pressed value" of the class 
-        return GPIO.input(self.pin) == self.pressed_value
-
+        return GPIO.input("P2_2") == self.pressed_value
     # End def
 
 
-    def wait_for_press(self):
-        """ Wait for the button to be pressed.  This function will 
-           wait for the button to be pressed and released so there
-           are no race conditions.
-           
-           Use the callback functions to peform actions while waiting
-           for the button to be pressed or get values after the button
-           is pressed.
-        
-           Arguments:  None
-           Returns:    None
-        """
-        button_press_time = None
-        
-        # Wait for button press
-        #   Execute the unpressed callback function based on the sleep time
-        #
-        # HW#4 TODO: (one line of code)
-        #   Update while loop condition to compare the input value of the  
-        #   GPIO pin of the buton (i.e. self.pin) to the "unpressed value" 
-        #   of the class (i.e. we are executing the while loop while the 
-        #   button is not being pressed)
-        #
-        while(GPIO.input(self.pin) == self.unpressed_value):
-        
-            if self.unpressed_callback is not None:
-                self.unpressed_callback_value = self.unpressed_callback()
-            
-            time.sleep(self.sleep_time)
-            
-        # Record time
-        button_press_time = time.time()
-        
-        # Executed the on press callback function
-        if self.on_press_callback is not None:
-            self.on_press_callback_value = self.on_press_callback()
-        
-        # Wait for button release
-        #   Execute the pressed callback function based on the sleep time
-        #
-        # HW#4 TODO: (one line of code)
-        #   Update while loop condition to compare the input value of the  
-        #   GPIO pin of the buton (i.e. self.pin) to the "pressed value" 
-        #   of the class (i.e. we are executing the while loop while the 
-        #   button is being pressed)
-        #
-        while(GPIO.input(self.pin) == self.pressed_value):
-        
-            if self.pressed_callback is not None:
-                self.pressed_callback_value = self.pressed_callback()
-                
-            time.sleep(self.sleep_time)
-        
-        # Record the press duration
-        self.press_duration = time.time() - button_press_time
-
-        # Executed the on release callback function
-        if self.on_release_callback is not None:
-            self.on_release_callback_value = self.on_release_callback()        
-        
-    # End def
-
+def wait_for_press(self):
+    """Wait for the button to be pressed."""
+    button_press_time = None
+    
+    # Wait for button press
+    while GPIO.input("P2_2") == self.unpressed_value:
+        if self.unpressed_callback is not None:
+            self.unpressed_callback_value = self.unpressed_callback()
+        time.sleep(self.sleep_time)
+    
+    # Record time
+    button_press_time = time.time()
+    
+    # Execute the on press callback function
+    if self.on_press_callback is not None:
+        self.on_press_callback_value = self.on_press_callback()
+    
+    # Wait for button release
+    while GPIO.input("P2_2") == self.pressed_value:
+        if self.pressed_callback is not None:
+            self.pressed_callback_value = self.pressed_callback()
+        time.sleep(self.sleep_time)
+    
+    # Record the press duration
+    self.press_duration = time.time() - button_press_time
+    
+    # Execute the on release callback function
+    if self.on_release_callback is not None:
+        self.on_release_callback_value = self.on_release_callback()
     
     def get_last_press_duration(self):
         """ Return the last press duration """
@@ -343,7 +309,7 @@ if __name__ == '__main__':
     try:
         # Check if the button is pressed
         print("Is the button pressed?")
-        print("    {0}".format(button.is_pressed()))
+       
 
         print("Press and hold the button.")
         time.sleep(4)
@@ -377,4 +343,3 @@ if __name__ == '__main__':
         pass
 
     print("Test Complete")
-

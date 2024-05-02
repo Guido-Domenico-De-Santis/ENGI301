@@ -149,8 +149,21 @@ if __name__ == '__main__':
         range_value = vl53.range
         print("Range: {0}mm".format(range_value))
             
-        if range_value < 800:
-            buzzer.play(440, 1.0, True)  # Play 440Hz for 1 second when range is greater than 8000mm
+        if 260 < range_value < 300:
+            buzzer.play(493, 1.0, True)  # Play 440Hz for 1 second when range is less than 800 mm
+        elif 220 < range_value < 260:
+            buzzer.play(440, 1.0, True)
+        elif 180 < range_value < 220:
+            buzzer.play(392, 1.0, True)
+        elif 140 < range_value < 180:
+            buzzer.play(349, 1.0, True)
+        elif 100 < range_value < 140:
+            buzzer.play(329, 1.0, True)
+        elif 60 < range_value < 100:
+            buzzer.play(293, 1.0, True)
+        elif 0 < range_value < 60:
+            buzzer.play(261, 1.0, True)
+                       
         else:
             buzzer.stop()
             
